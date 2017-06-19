@@ -1,4 +1,6 @@
-const { Api } = require('@parity/parity.js');
+global.fetch = require('node-fetch');
+
+const { Api } = require('./parity.js');
 
 const api = new Api(new Api.Transport.Http('http://localhost:8545', -1));
 
