@@ -16,13 +16,8 @@ function getBalances () {
     });
 
     reader.addListener('data', (data) => {
-      const [ rawPublicKey, rawAmount ] = data;
-
+      const [ address, rawAmount ] = data;
       const amount = parseInt(rawAmount);
-      const publicKey = EthereumUtils.toBuffer(rawPublicKey);
-
-      const rawAddress = EthereumUtils.pubToAddress(publicKey);
-      const address = EthereumUtils.toChecksumAddress(rawAddress.toString('hex'));
 
       if (!balances[address]) {
         balances[address] = 0;
