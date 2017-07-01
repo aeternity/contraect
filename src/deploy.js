@@ -1,5 +1,5 @@
 const api = require('./api');
-const AEToken = require('./build/AEToken.json');
+const AEToken = require('../build/AEToken.json');
 
 const contract = api.newContract(AEToken.abi);
 

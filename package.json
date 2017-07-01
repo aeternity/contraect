@@ -8,6 +8,7 @@
     "ethereumjs-util": "^5.1.1",
     "inquirer": "^3.0.6",
     "node-fetch": "^1.7.1",
+    "solc": "^0.4.11",
     "truffle-compile": "ngotchac/truffle-compile",
     "truffle-contract-schema": "^0.0.5",
     "ya-csv": "^0.10.1"

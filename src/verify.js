@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const EthereumUtils = require('ethereumjs-util');
-const AEToken = require('./build/AEToken.json');
+const AEToken = require('../build/AEToken.json');
 
 const api = require('./api');
 const getBalances = require('./get-balances');
