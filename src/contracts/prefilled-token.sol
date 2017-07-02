@@ -8,22 +8,16 @@ contract PrefilledToken is HumanStandardToken {
   bool public prefilled = false;
   address public creator = msg.sender;
 
-  function prefill (bytes32[] _positions, uint16[] _values)
+  function prefill (address[] _addresses, uint[] _values)
     only_not_prefilled
     only_creator
   {
     uint total = 0;
 
-    for (uint i = 0; i < _positions.length; i++) {
-      bytes32 pos = _positions[i];
-      uint16 val = _values[i];
-
-      assembly {
-          // Skip if address has already balance
-          jumpi(skip_tag, sload(pos))
-          sstore(pos, val)
-          total := add(total, val)
-        skip_tag:
+    for (uint i = 0; i < _addresses.length; i++) {
+      if (balances[_addresses[i]] == 0) {
+        balances[_addresses[i]] += _values[i];
+        total += _values[i];
       }
     }
 

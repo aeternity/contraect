@@ -33,22 +33,18 @@ inquirer
   })
   .then(() => getBalances())
   .then((balances) => {
-    const positions = Object.keys(balances).map((address) => {
-      const paddedAddress = pad(address.replace(/^0x/, '')).toLowerCase();
-
-      return api.util.sha3(paddedAddress + pad('1'));
-    });
+    const addresses = Object.keys(balances);
     const values = Object.keys(balances).map((address) => balances[address]);
 
     process.stdout.write('> calling the prefill method ... ');
     return token.instance.prefill
-      .estimateGas({ from: defaultAccount }, [ positions, values ])
+      .estimateGas({ from: defaultAccount }, [ addresses, values ])
       .then((gas) => {
         return token.instance.prefill
           .postTransaction({
             from: defaultAccount,
-            gas: gas.mul(1.05)
-          }, [ positions, values ])
+            gas: gas.mul(1.01)
+          }, [ addresses, values ])
       });
   })
   .then((requestId) => {
