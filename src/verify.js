@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 const inquirer = require('inquirer');
 const EthereumUtils = require('ethereumjs-util');
 const AEToken = require('../build/AEToken.json');
@@ -5,11 +8,17 @@ const AEToken = require('../build/AEToken.json');
 const api = require('./api');
 const getBalances = require('./get-balances');
 
-// const CONTRACT_ADDRESS = '0xE4601A50EE027138580DA8d93A71375ecdfB450e';
+const DEPLOYED_ADDRESS_FILEPATH = path.resolve(__dirname, '../.last-contract-address');
+let defaultAddress = undefined;
+
+try {
+  defaultAddress = fs.readFileSync(DEPLOYED_ADDRESS_FILEPATH).toString().trim();
+} catch (e) {}
 
 let ok = true;
 
 inquirer.prompt([ {
+  default: defaultAddress,
   type: 'input',
   name: 'address',
   message: 'What is the contract address:',
