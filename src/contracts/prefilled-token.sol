@@ -12,16 +12,21 @@ contract PrefilledToken is HumanStandardToken {
     only_not_prefilled
     only_creator
   {
-    uint total = 0;
+    uint total = totalSupply;
 
     for (uint i = 0; i < _addresses.length; i++) {
-      if (balances[_addresses[i]] == 0) {
-        balances[_addresses[i]] += _values[i];
-        total += _values[i];
+      address who = _addresses[i];
+      uint val = _values[i];
+
+      if (balances[who] != val) {
+        total -= balances[who];
+
+        balances[who] = val;
+        total += val;
       }
     }
 
-    totalSupply += total;
+    totalSupply = total;
   }
 
   function launch ()
