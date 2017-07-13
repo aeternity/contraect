@@ -1,7 +1,7 @@
 {
-  "name": "aeth-token",
+  "name": "aet-token",
   "version": "0.1.0",
-  "description": "Generate AETH ERC20 Token",
+  "description": "Generate AET ERC20 Token",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
