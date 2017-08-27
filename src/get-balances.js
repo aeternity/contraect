@@ -19,7 +19,7 @@ function getBalances () {
 
     reader.addListener('data', (data) => {
       const [ address, rawAmount ] = data;
-      const amount = DECIMALS * parseFloat(rawAmount);
+      const amount = parseInt(DECIMALS * parseFloat(rawAmount));
 
       if (!balances[address]) {
         balances[address] = 0;
