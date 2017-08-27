@@ -9,9 +9,9 @@ function getBalances () {
     const balances = {};
 
     const reader = csv.createCsvFileReader(DATA_FILEPATH, {
-      separator: ';',
+      separator: ',',
       quote: '"',
-      escape: '"',       
+      escape: '"',
       comment: '',
     });
 
