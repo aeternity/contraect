@@ -4,7 +4,7 @@ const TruffleCompile = require('truffle-compile');
 const TruffleContractSchema = require('truffle-contract-schema');
 
 const source = path.resolve(__dirname + '/contracts');
-const build = path.resolve(__dirname + '/build');
+const build = path.resolve(__dirname + '/../build');
 
 const contractRegex = /\.sol$/i;
 const excludeRegex = /template/i;

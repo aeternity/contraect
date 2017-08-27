@@ -1,8 +1,8 @@
-import "human-standard-token.sol";
+import "prefilled-token.sol";
 
 pragma solidity ^0.4.11;
 
-contract AEToken is HumanStandardToken {
+contract AEToken is PrefilledToken {
 
   // Date when the tokens won't be transferable anymore
   uint public transferableUntil;
@@ -15,7 +15,7 @@ contract AEToken is HumanStandardToken {
       string   tokenSymbol
     )
    */
-  function AEToken() HumanStandardToken(500000000000, "AEToken", 0, "AE") {
+  function AEToken() HumanStandardToken(0, "AEToken", 0, "AE") {
     uint nYears = 2;
 
     transferableUntil = now + (60 * 60 * 24 * 365 * nYears);

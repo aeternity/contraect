@@ -2,7 +2,7 @@ const path = require('path');
 const csv = require('ya-csv');
 const EthereumUtils = require('ethereumjs-util');
 
-const DATA_FILEPATH = path.resolve(__dirname + '/data.csv');
+const DATA_FILEPATH = path.resolve(__dirname + '/../data.csv');
 
 function getBalances () {
   return new Promise((resolve, reject) => {

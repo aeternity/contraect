@@ -5,28 +5,22 @@ Have the Parity Signer ready to be used, at http://127.0.0.1:8180.
 ## Deploy the AEToken contract
 
 ```bash
-## Compile the contracts in `./contracts/*.sol`
-$> node compile.js
+## Compile the contracts in `./src/contracts/*.sol`
+$> node src/compile.js
 
 ## Deploy the AEToken contract
-$> node deploy.js
+$> node src/deploy.js
 ```
 
 This will print the deployed contract address. Please write it down,
 it will be asked for the bulk transfers and verification.
 
-## Bulk Transfer Tokens
+## Prefill the Token
 
 ```bash
-## Generate the BulkTransfer contract from the
+## Prefill the token contract with
 ## data in `./data.csv`
-$> node generator.js > contracts/bulk-token-transfer.sol
-
-## Compile the contracts in `./contracts/*.sol`
-$> node compile.js
-
-## Execute the bulk transfer
-$> node bulk-transfer.js
+$> node src/prefill.js
 ```
 
 ## Verify the data
@@ -34,7 +28,7 @@ $> node bulk-transfer.js
 ```bash
 ## Verify the data in `./data.csv` against the
 ## contract on the blockchain
-$> node verify.js
+$> node src/verify.js
 ```
 
 ## Verify the contract on Etherscan
