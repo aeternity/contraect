@@ -2,7 +2,7 @@ const path = require('path');
 const csv = require('ya-csv');
 const EthereumUtils = require('ethereumjs-util');
 
-const DECIMALS = 10**16;
+const DECIMALS = 10000000000000000;
 
 const DATA_FILEPATH = path.resolve(__dirname + '/../data.csv');
 
