@@ -15,7 +15,7 @@ contract AEToken is PrefilledToken {
       string   tokenSymbol
     )
    */
-  function AEToken() HumanStandardToken(0, "AEToken", 0, "AE") {
+  function AEToken() HumanStandardToken(0, "AEToken", 16, "AE") {
     uint nYears = 2;
 
     transferableUntil = now + (60 * 60 * 24 * 365 * nYears);
