@@ -5,7 +5,8 @@ const { Api } = require('./parity.js');
 // Gas price set to 2 GWei
 const GAS_PRICE = 2 * Math.pow(10, 9);
 
-const api = new Api(new Api.Transport.Http('http://localhost:8545', -1));
+//const api = new Api(new Api.Transport.Http('http://localhost:8545', -1));
+const api = new Api(new Api.Transport.Http('http://192.168.99.100:8545', -1));
 
 api.sender = {
   address: '',
@@ -26,7 +27,7 @@ api.parity.postTransaction = (_options) => {
   let transactionPromise;
 
   if (options.from && sender.address && options.from.toLowerCase() === sender.address.toLowerCase()) {
-    transactionPromise = api.personal.sendTransaction(options, sender.password)
+		transactionPromise = api.personal.sendTransaction(options, sender.password)
       .then((txHash) => {
         const requestId = `local::${nextRequestId}`;
 

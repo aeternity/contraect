@@ -10,10 +10,10 @@ const DEPLOYED_ADDRESS_FILEPATH = path.resolve(__dirname, '../.last-contract-add
 
 let accounts;
 
-return api.parity.allAccountsInfo()
+return api.parity.accountsInfo()
   .then((accountsInfo) => {
     accounts = Object.keys(accountsInfo)
-      .filter((address) => accountsInfo[address].uuid)
+      .filter((address) => accountsInfo[address].name)
       .map((address) => {
         return Object.assign({ address }, accountsInfo[address]);
       });
