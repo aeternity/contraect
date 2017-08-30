@@ -5,3 +5,5 @@ data.*.csv
 data.csv
 contracts/bulk-token-transfer.sol
 .last-contract-address
+key.json
+unlockpass

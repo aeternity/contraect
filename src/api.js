@@ -5,8 +5,9 @@ const { Api } = require('./parity.js');
 // Gas price set to 2 GWei
 const GAS_PRICE = 2 * Math.pow(10, 9);
 
-//const api = new Api(new Api.Transport.Http('http://localhost:8545', -1));
-const api = new Api(new Api.Transport.Http('http://192.168.99.100:8545', -1));
+var arg = process.argv.slice(2)[0]; // Take the first command line argument
+var parity_addr = arg ? arg : 'http://localhost:8545';
+const api = new Api(new Api.Transport.Http(parity_addr, -1));
 
 api.sender = {
   address: '',
