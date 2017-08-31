@@ -1,6 +1,5 @@
 # Token deployment and bulk transfer
 
-Have the Parity Signer ready to be used, at http://127.0.0.1:8180.
 The easiest way to run these scripts is by using the supplied `docker-compose.yml`
 
 ```bash
@@ -10,6 +9,8 @@ $> docker-compose up -d parity-node
 # start up the script docker image and connect to it
 $> docker-compose run --rm scripts bash
 ```
+
+Otherwise have the Parity Signer ready to be used, at http://127.0.0.1:8180.
 
 ## Deploy the AEToken contract
 

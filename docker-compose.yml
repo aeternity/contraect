@@ -1,0 +1,19 @@
+version: '2'
+services:
+  parity-node:
+    build: ./parity/
+    environment:
+      - UNLOCK_ADDR=00b53300f26b5f5784a6b9f5d35be9d5ba8eaec9
+      - CHAIN=kovan
+    ports:
+      - "8080:8080"
+      - "8180:8180"
+      - "8546:8546"
+      - "8545:8545"
+  scripts:
+    build: .
+    container_name: scripts
+    tty: true
+    restart: always
+    depends_on:
+      - parity-node
