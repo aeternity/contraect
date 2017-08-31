@@ -10,7 +10,12 @@ $> docker-compose up -d parity-node
 $> docker-compose run --rm scripts bash
 ```
 
-Otherwise have the Parity Signer ready to be used, at http://127.0.0.1:8180.
+All the node scripts expect a parity instance to be accessible via `http://localhost:8545`.
+If that is not the case then use the scripts like so:
+
+```bash
+$> node src/deploy.js http://192.168.99.100:8545
+```
 
 ## Deploy the AEToken contract
 
