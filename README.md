@@ -49,6 +49,14 @@ $> node src/verify.js
 $> node src/launch_status.js
 ```
 
+## Check transferable until date
+
+```bash
+## checks transferableUntil variable in the deployed contract,
+## which sets the point in time until tokens can be traded.
+$> node src/transferable_until.js
+```
+
 ## Launch
 
 ```bash
