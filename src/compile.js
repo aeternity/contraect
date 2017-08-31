@@ -30,7 +30,8 @@ fs.readdir(source, (error, files) => {
     }, {});
 
   TruffleCompile(sources, {
-    contracts_directory: source
+    contracts_directory: source,
+		solc: { optimizer: { enabled: true, runs: 0 } },
   }, (error, results) => {
     if (error) {
       console.error(error);

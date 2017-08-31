@@ -1,6 +1,6 @@
 import "prefilled-token.sol";
 
-pragma solidity ^0.4.11;
+pragma solidity ^0.4.16;
 
 contract AEToken is PrefilledToken {
 
@@ -30,9 +30,7 @@ contract AEToken is PrefilledToken {
   }
 
   modifier only_transferable () {
-    if (now > transferableUntil) {
-      throw;
-    }
+		assert(now <= transferableUntil);
     _;
   }
 }

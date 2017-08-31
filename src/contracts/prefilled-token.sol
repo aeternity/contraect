@@ -1,7 +1,7 @@
 
 import "human-standard-token.sol";
 
-pragma solidity ^0.4.11;
+pragma solidity ^0.4.16;
 
 contract PrefilledToken is HumanStandardToken {
 
@@ -43,42 +43,30 @@ contract PrefilledToken is HumanStandardToken {
    */
 
   function transfer(address _to, uint256 _value) returns (bool success) {
-    if (!prefilled) {
-      throw;
-    }
+		assert(prefilled);
 
     return super.transfer(_to, _value);
   }
 
   function transferFrom(address _from, address _to, uint256 _value) returns (bool success) {
-    if (!prefilled) {
-      throw;
-    }
+		assert(prefilled);
 
     return super.transferFrom(_from, _to, _value);
   }
 
   function approve(address _spender, uint256 _value) returns (bool success) {
-    if (!prefilled) {
-      throw;
-    }
+		assert(prefilled);
 
     return super.approve(_spender, _value);
   }
 
   modifier only_creator () {
-    if (msg.sender != creator) {
-      throw;
-    }
-
+		require(msg.sender == creator);
     _;
   }
 
   modifier only_not_prefilled () {
-    if (prefilled) {
-      throw;
-    }
-
+		assert(!prefilled);
     _;
   }
 }
