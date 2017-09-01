@@ -4,14 +4,19 @@
   "description": "Generate AET ERC20 Token",
   "main": "index.js",
   "license": "MIT",
-  "dependencies": {
+  "scripts": {
+    "test": "truffle test",
+    "networks": "truffle networks"
+  },
+  "devDependencies": {
     "big.js": "^3.1.3",
-    "ethereumjs-util": "^5.1.1",
-    "inquirer": "^3.0.6",
-    "node-fetch": "^1.7.1",
+    "ethereumjs-util": "^5.1.2",
+    "inquirer": "^3.2.3",
+    "node-fetch": "^1.7.2",
     "solc": "^0.4.16",
-    "truffle-compile": "knarz/truffle-compile",
-    "truffle-contract-schema": "^0.0.5",
+    "truffle": "^3.4.9",
+    "truffle-compile": "github:knarz/truffle-compile",
+    "truffle-contract-schema": "0.0.5",
     "ya-csv": "^0.10.1"
   }
 }

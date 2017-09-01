@@ -3,11 +3,11 @@ const path = require('path');
 const TruffleCompile = require('truffle-compile');
 const TruffleContractSchema = require('truffle-contract-schema');
 
-const source = path.resolve(__dirname + '/contracts');
+const source = path.resolve(__dirname + '/../contracts');
 const build = path.resolve(__dirname + '/../build');
 
 const contractRegex = /\.sol$/i;
-const excludeRegex = /template/i;
+const excludeRegex = /(template|Migration|ConvertLib)/i;
 
 fs.readdir(source, (error, files) => {
   if (error) {

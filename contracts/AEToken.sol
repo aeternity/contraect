@@ -1,6 +1,6 @@
-import "prefilled-token.sol";
+import "./PrefilledToken.sol";
 
-pragma solidity ^0.4.16;
+pragma solidity ^0.4.15;
 
 contract AEToken is PrefilledToken {
 

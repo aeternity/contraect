@@ -1,7 +1,7 @@
 
-import "human-standard-token.sol";
+import "./HumanStandardToken.sol";
 
-pragma solidity ^0.4.16;
+pragma solidity ^0.4.15;
 
 contract PrefilledToken is HumanStandardToken {
 

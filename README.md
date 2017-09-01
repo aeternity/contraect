@@ -78,3 +78,9 @@ field.
 
 Imports won't work so instead of imports just copy paste the content
 of the imported file.
+
+# Testing
+
+Tests can be ran with truffle either from within the `scripts` container or
+against any other [testrpc](https://github.com/ethereumjs/testrpc) instance.
+Please make sure to set the proper `host` in the `truffle.js` file.

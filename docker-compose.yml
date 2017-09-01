@@ -10,6 +10,10 @@ services:
       - "8180:8180"
       - "8546:8546"
       - "8545:8545"
+  testrpc:
+    build: ./testrpc/
+    ports:
+      - "8548:8548"
   scripts:
     build: .
     container_name: scripts
@@ -17,3 +21,4 @@ services:
     restart: always
     depends_on:
       - parity-node
+      - testrpc
