@@ -22,15 +22,17 @@ function getBalances () {
 
     reader.addListener('data', (data) => {
       const [ address, rawAmount ] = [data["Address"], data["Tokens"]] ;
-			//console.log(address, rawAmount);
 			var bRaw = big(rawAmount);
 			var bOut = bRaw.times(BIGD);
+			// The csv contains address with and without checksums, so we need to convert
+			// them in order for the balances to match up.
+			const addr = address.toLowerCase();
 
-      if (!balances[address]) {
-        balances[address] = big(0);
+      if (!balances[addr]) {
+        balances[addr] = big(0);
       }
 
-      balances[address] = balances[address].plus(bOut);
+      balances[addr] = balances[addr].plus(bOut);
     });
 
     reader.addListener('error', (error) => {

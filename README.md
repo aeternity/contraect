@@ -20,7 +20,7 @@ $> node src/deploy.js http://192.168.99.100:8545
 ## Deploy the AEToken contract
 
 ```bash
-## Compile the contracts in `./src/contracts/*.sol`
+## Compile the contracts in `./contracts/*.sol`
 $> node src/compile.js
 
 ## Deploy the AEToken contract
