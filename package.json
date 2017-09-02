@@ -1,7 +1,7 @@
 {
-  "name": "aet-token",
-  "version": "0.1.0",
-  "description": "Generate AET ERC20 Token",
+  "name": "ae-token",
+  "version": "1.0.0",
+  "description": "Generate AE ERC20 Token",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
