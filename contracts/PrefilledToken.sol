@@ -23,7 +23,7 @@ contract PrefilledToken is HumanStandardToken {
 
         balances[who] = val;
         total += val;
-				Transfer(creator, who, val);
+				Transfer(0x0, who, val);
       }
     }
 
