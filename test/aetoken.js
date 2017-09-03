@@ -1,7 +1,7 @@
 var AEToken = artifacts.require("./AEToken.sol");
 
 contract('AEToken', function(accounts) {
-	const amounts = [1337, 7331];
+	const amounts = [1337, 7331, 10000];
   it("should have initial totalSupply 0", function() {
     return AEToken.deployed().then(function(instance) {
       return instance.totalSupply.call();
@@ -34,6 +34,25 @@ contract('AEToken', function(accounts) {
 		}).then(function(supply) {
 			const t = amounts[0] + amounts[1];
       assert.equal(supply.valueOf(), t, t + " wasn't in the totalSupply after prefill");
+		}).catch(function(err) {
+			assert.isNull(err);
+		});
+  });
+  it("should update balances with additional prefill() for new accounts", function() {
+    var aet;
+		var creator;
+
+    return AEToken.deployed().then(function(instance) {
+      aet = instance;
+      return aet.creator.call();
+    }).then(function(_creator) {
+			creator = _creator;
+      return aet.prefill.sendTransaction([accounts[2]], [amounts[2]], {from: creator});
+    }).then(function() {
+      return aet.totalSupply.call();
+		}).then(function(supply) {
+			const t = amounts[0] + amounts[1] + amounts[2];
+      assert.equal(supply.valueOf(), t, t + " wasn't in the totalSupply after additional prefill");
 		}).catch(function(err) {
 			assert.isNull(err);
 		});
