@@ -110,7 +110,7 @@ function prefill (balances, start, length) {
   return token.instance.prefill
     .estimateGas({ from: creator }, [ addresses, values ])
     .then((_gas) => {
-      const gas = _gas.mul(1.01).round();
+      const gas = _gas.mul(1.10).round();
 
       process.stdout.write(`> [${start}:${start+addresses.length}] calling the prefill method (${gas.toFormat()} gas) ... `);
 
