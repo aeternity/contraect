@@ -31,7 +31,7 @@ inquirer.prompt([ {
   })
   .then(([ balances, address ]) => {
     process.stdout.write('\n');
-    
+
     const contract = api.newContract(AEToken.abi, address);
     let promise = Promise.resolve();
 
@@ -57,7 +57,7 @@ inquirer.prompt([ {
       process.exit(1);
     }
 
-    console.log('> all good!');
+    console.log('> Initial AE token distribution matches data.csv! All good!');
   })
   .catch((error) => {
     console.error(error);
