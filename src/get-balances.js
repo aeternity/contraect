@@ -21,7 +21,7 @@ function getBalances () {
     });
 
     reader.addListener('data', (data) => {
-      const [ address, rawAmount ] = [data["Address"], data["Tokens"]] ;
+      const [ address, rawAmount ] = [data["Address"], data["AE"]] ;
 			var bRaw = big(rawAmount);
 			var bOut = bRaw.times(BIGD);
 			// The csv contains address with and without checksums, so we need to convert
@@ -40,7 +40,7 @@ function getBalances () {
     });
 
     reader.addListener('end', () => {
-			// Convert the big numbers to strings, so that parity.js, which uses 
+			// Convert the big numbers to strings, so that parity.js, which uses
 			// bignumber.js can import them. If they are Numbers instead of Strings,
 			// bignumber.js complains that it can only handle numbers with 15 significant
 			// digits. .toFixed(0) so we don't end up with any decimals.

@@ -17,8 +17,8 @@ as a human readable name, see [here for some more details](https://media.consens
 
 ## prefilled-token.sol
 
-Since the Aeternity ICO did not initially issue an ERC 20 token, the distribution
-has to happen after the fact via a contract that gets filled with all the contributions.
+The distribution for the AE token (ERC20 token on Ethereum)
+happens via a contract that gets filled with all the contributions.
 The `prefill(address[] _addresses, uint[] _values)` function does just that. After
 the contract has been created, the `prefill` function will be called to distribute
 the tokens. Calling the `prefill` function is only possible as long as the `prefilled`
@@ -32,5 +32,5 @@ change, thus making it impossible to create more tokens after launching.
 
 This the actual token that gets created and differs from the prefilled token only
 by adding a time limit up until tokens can be transfered. Tokens will become
-non transferable because they are intended to be exchanged for the native coins
+non-transferable as they are intended to be exchanged for the native coins
 of the Aeternity blockchain once it is ready.
